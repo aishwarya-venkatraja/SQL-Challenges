@@ -37,24 +37,31 @@ group by customer_id,product_name;
 
 4.What is the most purchased item on the menu and how many times was it purchased by all customers?
 
+select product_name as most_purchased_item,COUNT(*) as Total_Purchases
+from sales as s
+join menu as m on s.product_id = m.product_id
+group by product_name
+order by Total_Purchases desc
+limit 1;
+
 5.Which item was the most popular for each customer?
 
-select distinct customer_id,max(item_count) over (partition by customer_id) AS Favorite_item
-from (select s.customer_id,m.product_name as Item_name,count(s.product_id) as Item_Count
-from sales s
-join menu m on s.product_id=m.product_id
-group by customer_id,product_name) as count
-group by customer_id;
+with customer_popularity AS (
+  select s.customer_id,m.product_name,COUNT(*) AS item_count,
+    row_number() over (partition by s.customer_id order by  COUNT(*) desc) as ranks
+  from sales as s
+  join menu as m on s.product_id = m.product_id
+  group by s.customer_id,m.product_name
+)
+SELECT customer_id,product_name AS Most_Popular_Item
+FROM customer_popularity
+WHERE ranks = 1;
 
-select s.customer_id,product_id,count(s.product_id) as Item_Count
-from sales s
-join menu m on s.product_id=m.product_id
-group by customer_id,product_id,item_name;
 
 6.Which item was purchased first by the customer after they became a member?
 
 
-with cte as 
+with first_purchase_after_member_cte as 
 (select s.customer_id,m.product_name,
 dense_rank() over(partition by s.customer_id order by s.order_date asc) As ranks
 from sales s
@@ -62,13 +69,13 @@ join menu m on s.product_id=m.product_id
 join members on members.customer_id=s.customer_id
 where order_date>join_date)
 select distinct customer_id,product_name
-from cte
+from first_purchase_after_member_cte
 where ranks=1
 group by customer_id,product_name;
 
 7.Which item was purchased just before the customer became a member?
 
-with cte as 
+with purchase_before_member_cte as 
 (select s.customer_id,m.product_name,
 dense_rank() over(partition by s.customer_id order by s.order_date desc) As ranks
 from sales s
@@ -76,7 +83,7 @@ join menu m on s.product_id=m.product_id
 join members on members.customer_id=s.customer_id
 where order_date<join_date)
 select distinct customer_id,product_name
-from cte
+from purchase_before_member_cte
 where ranks=1
 group by customer_id,product_name;
 
