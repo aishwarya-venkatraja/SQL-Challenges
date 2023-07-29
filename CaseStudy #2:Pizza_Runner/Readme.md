@@ -53,11 +53,13 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 **CASE STUDIES**
 
--Pizza Metrics
--Runner and Customer Experience
--Ingredient Optimisation
--Pricing and Ratings
--Bonus DML Challenges 
+- **Pizza Metrics**
+- **Runner and Customer Experience**
+- **Ingredient Optimisation**
+- **Pricing and Ratings**
+- **Bonus DML Challenges**
+
+
 
 
 
