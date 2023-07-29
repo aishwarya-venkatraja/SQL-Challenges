@@ -12,37 +12,26 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 # Datasets
 
-- **Table Name: runners**
-  - Description: The table shows the registration_date for each new runner.
+- **Runners**
+  The table shows the registration_date for each new runner.
 
-- **Table Name: customer_orders**
-  - Description: Customer pizza orders are captured in the customer_orders table with 1 row for each individual pizza that is part of the order.
-  - Columns:
-    - Order_id,Customer_id
-    - pizza_id: Relates to the type of pizza which was ordered.
-    - exclusions: Ingredient_id values to be removed from the pizza.
-    - extras: Ingredient_id values to be added to the pizza.
+- **Customer_orders**
+Customer pizza orders are captured in the customer_orders table with 1 row for each individual pizza that is part of the order.
 
-- **Table Name: runner_orders**
-  - Description: After each order is received through the system, they are assigned to a runner. However, not all orders are fully completed and can be cancelled by the restaurant or the customer.
-  - Columns:
-    -Order_id,Runner_id
-    - pickup_time: The timestamp at which the runner arrives at the Pizza Runner headquarters to pick up the freshly cooked pizzas.
-    - distance: Related to how far the runner had to travel to deliver the order to the respective customer.
-    - duration: Indicates how long the runner took to deliver the order.
-    - Cancellation: Yes Or No
+- **Runner_orders**
+  After each order is received through the system, they are assigned to a runner. However, not all orders are fully completed and can be cancelled by the restaurant or the customer.
 
 - **Table Name: pizza_names**
-  - Description: Pizza Runner only has 2 pizzas available: Meat Lovers or Vegetarian!
+ Pizza Runner only has 2 pizzas available: Meat Lovers or Vegetarian!
 
 - **Table Name: pizza_recipes**
-  - Description: Each pizza_id has a standard set of toppings which are used as part of the pizza recipe.
+ Each pizza_id has a standard set of toppings which are used as part of the pizza recipe.
 
 - **Table Name:Pizza_toppings**
- - Description: Topping_id and its Topping_names.
+  Topping_id and its Topping_names.
 
 - **Table Name: pizza_toppings**
-  - Description: The table contains all of the topping_name values with their corresponding topping_id value.
+  The table contains all of the topping_name values with their corresponding topping_id value.
  
 
 **DATA CLEANING**
@@ -51,7 +40,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 
 
-**CASE STUDIES**
+**CASE STUDIES FOCUS AREAS**
 
 - **Pizza Metrics**
 - **Runner and Customer Experience**
