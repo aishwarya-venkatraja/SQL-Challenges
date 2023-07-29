@@ -5,7 +5,7 @@ Case-study-Danny's Dinner Solutions
 Tool used:
 MySQL
 Concepts used:
-Group by,CTE's,Window Functions,Subqueries
+Group by,Aggregate functions,CTE's,Window Functions,Subqueries
 
 --------------------------
   
@@ -29,7 +29,7 @@ group by customer_id;
 select customer_id,product_name as first_product
 from
 (select s.customer_id,s.product_id,m.product_name,
-dense_rank() over(partition by customer_id order by order_date) as ranks
+dense_rank() over(partition by customer_id order by order_date) as ranks -- dense rank() is used to fetch all items from first order
 from sales s
 join menu m on s.product_id=m.product_id) as x
 where ranks=1
@@ -99,5 +99,7 @@ group by customer_id
 order by customer_id;
 
 9.If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+
+  
 
 10.In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
