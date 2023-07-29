@@ -43,6 +43,21 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 - **Table Name: pizza_toppings**
   - Description: The table contains all of the topping_name values with their corresponding topping_id value.
+ 
+
+**DATA CLEANING**
+
+
+
+
+
+**CASE STUDIES**
+
+-Pizza Metrics
+-Runner and Customer Experience
+-Ingredient Optimisation
+-Pricing and Ratings
+-Bonus DML Challenges 
 
 
 
