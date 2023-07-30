@@ -21,16 +21,16 @@ Customer pizza orders are captured in the customer_orders table with 1 row for e
 - **Runner_orders**
   After each order is received through the system, they are assigned to a runner. However, not all orders are fully completed and can be cancelled by the restaurant or the customer.
 
-- **Table Name: pizza_names**
+- **Pizza_names**
  Pizza Runner only has 2 pizzas available: Meat Lovers or Vegetarian!
 
-- **Table Name: pizza_recipes**
+- **Pizza_recipes**
  Each pizza_id has a standard set of toppings which are used as part of the pizza recipe.
 
-- **Table Name:Pizza_toppings**
+- **Pizza_toppings**
   Topping_id and its Topping_names.
 
-- **Table Name: pizza_toppings**
+- **Pizza_toppings**
   The table contains all of the topping_name values with their corresponding topping_id value.
  
 
