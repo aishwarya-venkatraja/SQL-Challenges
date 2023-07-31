@@ -25,7 +25,8 @@ Danny has shared with you 3 key datasets for this case study:
 
 ## Entity Relationship Diagram
 
-![Image](https://github.com/aishwarya-venkatraja/SQL-Challenges/blob/main/Case_Study%231%20Danny's%20Dinner/ERD_1.png)
+![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/e1cb52f5-099a-4569-b034-ffcfc065678c)
+
 
 ## Case study Questions
 
