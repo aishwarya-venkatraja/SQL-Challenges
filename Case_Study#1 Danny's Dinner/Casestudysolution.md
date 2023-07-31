@@ -2,14 +2,14 @@
 # Case-study-Danny's Dinner Solutions
 
 
-## Tool used:
+**Tool used:**
 MySQL
-## Concepts used:
+**Concepts used:**
 Group by,Aggregate functions,CTE's,Window Functions,Subqueries
 
 --------------------------
   
-**Case Study Questions:**
+## Case Study Questions:
 
 **1.What is the total amount each customer spent at the restaurant?**
 ```sql
