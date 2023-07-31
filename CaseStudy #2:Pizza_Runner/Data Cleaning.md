@@ -2,7 +2,7 @@
 
 **CUSTOMER_ORDERS**
 
-Before using the "exclusions" and "extras" columns in the "customer_orders" table for queries, it is necessary to clean up the data, as these columns contain blank spaces and null values.
+- Before using the "exclusions" and "extras" columns in the "customer_orders" table for queries, it is necessary to clean up the data, as these columns contain blank spaces and null values.
 
 ```sql
 Update customer_orders 
@@ -17,12 +17,12 @@ set exclusions =(case when exclusions='' or exclusions like '%null%' then NULL
 
 **RUNNER_ORDERS**
 
-Before utilizing the "pickup_time," "distance," "duration," and "cancellation" columns in the "runner_orders" table for queries, data cleaning has to be done for following reasons:
+- Before utilizing the "pickup_time," "distance," "duration," and "cancellation" columns in the "runner_orders" table for queries, data cleaning has to be done for following reasons:
 
-The "pickup_time" column contains null values.
-The "distance" column contains null values and includes the unit "km," which needs to be removed.
-The "duration" column has null values and includes variations like "minutes," "mins," and "minute," which must be removed.
-The "cancellation" column contains blank spaces and null values.
+- The "pickup_time" column contains null values.
+- The "distance" column contains null values and includes the unit "km," which needs to be removed.
+- The "duration" column has null values and includes variations like "minutes," "mins," and "minute," which must be removed.
+- The "cancellation" column contains blank spaces and null values.
 
 ```sql
 UPDATE runner_orders
@@ -39,6 +39,6 @@ SET
 
 **TEMPORARY TABLE CREATION**
 
-A temporary table is created for pizza_id and its topping_ids.
+- A temporary table is created for pizza_id and its topping_ids.
 
 
