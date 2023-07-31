@@ -10,6 +10,8 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 # Entity Relationship Diagram
 
+![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/b1dc31f1-acb0-4eab-be40-7e6713d5b9c5)
+
 # Datasets
 
 - **Runners**
@@ -33,14 +35,7 @@ Customer pizza orders are captured in the customer_orders table with 1 row for e
 - **Pizza_toppings**
   The table contains all of the topping_name values with their corresponding topping_id value.
  
-
-**DATA CLEANING**
-
-
-
-
-
-**CASE STUDIES FOCUS AREAS**
+**CASE STUDY FOCUS AREAS**
 
 - **Pizza Metrics**
 - **Runner and Customer Experience**
