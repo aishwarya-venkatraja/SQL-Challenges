@@ -60,17 +60,69 @@ group by Transaction_month_name;
 
 
 ```sql
-
+with monthly_balance_cte as (
+  select
+    customer_id,
+    txn_amount,txn_type,
+    txn_date,
+    SUM(case
+          when txn_type = 'deposit' then txn_amount
+          else -txn_amount
+        end) over (partition by customer_id order by txn_date) as closing_balance
+  from customer_transactions
+)
+select
+  customer_id,
+  EXTRACT(month from txn_date) as txn_month,txn_type,
+  txn_amount,
+  closing_balance
+from monthly_balance_cte
+order by customer_id, txn_date;
 ```
 
 **Result:**
+
+Result shown for 3 customers.
+
+![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/6a8344c3-c2cc-4b79-971f-83095ae0457b)
 
 
 **5. What is the percentage of customers who increase their closing balance by more than 5%?**
 
 
 ```sql
-
+WITH monthly_balance_cte AS (
+  SELECT
+    customer_id,
+    txn_amount,
+    txn_type,
+    txn_date,
+    SUM(
+      CASE
+        WHEN txn_type = 'deposit' THEN txn_amount
+        ELSE -txn_amount
+      END
+    ) OVER (PARTITION BY customer_id ORDER BY txn_date) AS closing_balance
+  FROM customer_transactions
+)
+, increased_customers AS (
+  SELECT
+    customer_id,
+    (current_balance - previous_balance) / previous_balance AS balance_percentage
+  FROM (
+    SELECT
+      customer_id,
+      LAST_VALUE(closing_balance) OVER (PARTITION BY customer_id ORDER BY txn_date) AS current_balance,
+      FIRST_VALUE(closing_balance) OVER (PARTITION BY customer_id ORDER BY txn_date) AS previous_balance
+    FROM monthly_balance_cte
+  ) AS customer_balance
+)
+SELECT
+  ROUND(100 * COUNT(DISTINCT CASE WHEN balance_percentage > 5.00 THEN customer_id END) / COUNT(DISTINCT customer_id), 2) AS Customer_Percentage
+FROM increased_customers;
 ```
 
 **Result:**
+
+![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/f7a7cee6-badc-4325-b1ca-6520c3b208ad)
+
