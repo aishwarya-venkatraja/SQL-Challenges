@@ -2,10 +2,10 @@
 # Case-study-Danny's Dinner Solutions
 
 
-**Tool used:**
+## Tool used:
 MySQL
 
-**Concepts used:**
+## Concepts used:
 Group by,Aggregate functions,CTE's,Window Functions,Subqueries
 
 --------------------------
