@@ -18,7 +18,7 @@ order by s.customer_id,p.plan_id;
 
 ![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/8fdb5d25-940f-4905-8ffa-22a9fdf82a14)
 
-**Insights from Customer journey:**
+## Insights from Customer journey:
 
 1. Customers 1, 9, 23, 45, and 100 all started with a trial but made changes to their subscription plans, either upgrading to higher tiers or switching between monthly and annual plans. This shows that customers initially test the service before committing to a specific plan.
 2. Customers 9, 23, and 86 upgraded to annual plans. This could indicate that some customers prefer the cost savings and convenience associated with annual billing.
