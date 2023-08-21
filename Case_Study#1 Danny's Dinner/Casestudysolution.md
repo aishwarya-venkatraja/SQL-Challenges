@@ -4,6 +4,7 @@
 
 **Tool used:**
 MySQL
+
 **Concepts used:**
 Group by,Aggregate functions,CTE's,Window Functions,Subqueries
 
@@ -150,6 +151,30 @@ order by customer_id;
 
 **9.If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?**
 
-  
+´´´sql
+select customer_id,
+       SUM(CASE
+               WHEN product_name = 'sushi' THEN price*20
+               ELSE price*10
+           END) AS customer_points
+from menu m
+join sales s ON m.product_id = s.product_id
+group by customer_id
+order by customer_id;  
+
+´´´
+
+**Result:**
+
+![image](https://github.com/aishwarya-venkatraja/SQL-Challenges/assets/140829886/3b4bd52e-12e2-4f29-b704-af670ab460cc)
 
 **10.In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
+
+
+´´´sql
+
+
+´´´
+
+**Result:**
+
